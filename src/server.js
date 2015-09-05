@@ -145,6 +145,9 @@ module.exports = function (classes) {
           var decoded;
 
           try {
+            if (buf[0] === '[') {
+              decoded = [decoded];
+            }
             decoded = JSON.parse(buf);
           } catch (error) {
             Server.handleHttpError(req, res, new Error.ParseError(INVALID_REQUEST), self.opts.headers);
@@ -166,6 +169,9 @@ module.exports = function (classes) {
             };
 
             if (json) {
+              if (buf[0] === '[') {
+                json = [json];
+              }
               encoded = JSON.stringify(json);
               headers['Content-Length'] = Buffer.byteLength(encoded, 'utf-8');
             } else {
