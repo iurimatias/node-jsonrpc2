@@ -145,10 +145,10 @@ module.exports = function (classes) {
           var decoded;
 
           try {
-            if (buf[0] === '[') {
-              decoded = [decoded];
-            }
             decoded = JSON.parse(buf);
+            if (buf[0] === '[') {
+              decoded = decoded[0];
+            }
           } catch (error) {
             Server.handleHttpError(req, res, new Error.ParseError(INVALID_REQUEST), self.opts.headers);
             return;
