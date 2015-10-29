@@ -1,5 +1,5 @@
 {
-  "name": "json-rpc2",
+  "name": "json-rpc2-ethersim",
   "version": "1.0.1",
   "description": "JSON-RPC 2.0 server and client library, with HTTP, TCP and Websocket endpoints",
   "main": "./src/jsonrpc.js",
